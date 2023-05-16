@@ -20,7 +20,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   })
 
   /* Crear tabla de conteo de contactos */
-  const barriosTabla = ["PALERMO", "MATADEROS", "FLORESTA", "VILLA URQUIZA", "VILLA PUEYRREDON", "CABALLITO"];
+  const barriosTabla = ["MATADEROS", "PALERMO",  "FLORESTA", "VILLA PUEYRREDON", "VILLA URQUIZA", "CABALLITO"];
   const conteoContactos = barriosTabla.map(barrio => {
     const contactos = reclamosPorBarrio.get(barrio);
     const cantidad = contactos ? contactos.length : 0;
