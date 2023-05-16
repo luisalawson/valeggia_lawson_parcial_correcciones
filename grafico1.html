@@ -1,59 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
   <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6"></script>
   <script src="scripts/script_dataviz1.js"></script>
   <script src="scripts/script_dataviz2.js"></script>
   <script src="scripts/script_dataviz3.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-	<title>Mi índice</title>
-	<style>
-		body {
-			background-image:url('https://images.unsplash.com/photo-1587574901114-1f36f2f08543?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');
-            font-family: 'Poppins', sans-serif;  margin: 0;
-		}
-		.caja {
-			position: absolute;
-			width: 70%;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			border-radius: 10%;
-			background-color: white;
-			align-items: center;
-			text-align: center;
-		}
-		.container{
-			align-items: center;
-		}
-		.back-button {
-			position: fixed;
-			top: 10px;
-			right: 10px;
-			padding: 10px 20px;
-			background-color: white;
-			color: black;
-			border-radius: 5px;
-			font-weight: bold;
-			cursor: pointer;
-		}
-	</style>
-    
+  <title>Mi índice</title>
+  <style>
+    body {
+      background-color: #f4f4f4;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .caja {
+      background-color: white;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 800px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 4px;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h5 {
+      font-size: 14px;
+      margin-bottom: 20px;
+      color: #666;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    a {
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <div class = "caja">
-        <h2>Contactos en enero: Explorando las tendencias vacacionales de CABA</h2>
-        <h5>Dataset utilizado: <a href="https://github.com/luisalawson/vd_s2_lawson_valeggia_EXAMEN_PARCIAL/blob/main/data/todos.csv">Datos sobre contactos primer semana de enero de 2021</a></h5>
-		<div class="container" style="display: flex; justify-content: center;">
-			<div id="chart_def_1"></div>
-		  </div>
-		  
-         <p>Sumérganse en este fascinante gráfico que revela los patrones de contactos en el mes de enero, en la vibrante ciudad de Buenos Aires. Descubran cómo la categoría de limpieza y recolección se alza como la líder indiscutible, en medio de una época de vacaciones. Analizamos detalladamente la primera semana de enero y desentrañamos los secretos que revelan los datos, para comprender mejor el comportamiento de la ciudad durante este período clave.</p>
-         <br>
-       </div>
-	
+  <div class="caja">
+    <h2>Contactos en enero: Explorando las tendencias vacacionales de CABA</h2>
+    <h5>Dataset utilizado: <a href="https://github.com/luisalawson/vd_s2_lawson_valeggia_EXAMEN_PARCIAL/blob/main/data/todos.csv">Datos sobre contactos primera semana de enero de 2021</a></h5>
+    <div id="chart_def_1"></div>
+    <p>Sumérganse en este fascinante gráfico que revela los patrones de contactos en el mes de enero, en la vibrante ciudad de Buenos Aires. Descubran cómo la categoría de limpieza y recolección se alza como la líder indiscutible, en medio de una época de vacaciones. Analizamos detalladamente la primera semana de enero y desentrañamos los secretos que revelan los datos, para comprender mejor el comportamiento de la ciudad durante este período clave.</p>
+  </div>
 
-	<button class="back-button" onclick="window.history.back()">Regresar</button>
+  <button class="back-button" onclick="window.history.back()">Regresar</button>
 </body>
 </html>
+
