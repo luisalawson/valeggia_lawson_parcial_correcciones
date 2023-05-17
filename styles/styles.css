@@ -186,7 +186,18 @@ button {
   cursor: pointer;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
 }
-
+.distinto{
+  display: block;
+  margin: 0 auto;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 25px;
+  background-color: white;
+  color: #4A7ACD;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+}
 /* Footer */
 .footer {
   font-family: 'Poppins', sans-serif;
