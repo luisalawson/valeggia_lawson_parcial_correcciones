@@ -194,14 +194,18 @@ button {
   background: #333;
   color: white;
   font-size: 15px;
+  padding-top: 10px;
+  height: max-content;
 }
 
 .footer a{
   color: white;
   font-size: 15px;
+  padding-bottom: 15px;
 }
 
 .nombres{
   color: white;
   font-size: 15px;
+  padding: 0;
 }
