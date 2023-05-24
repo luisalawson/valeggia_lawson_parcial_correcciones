@@ -1,10 +1,16 @@
 const mapaFetch = d3.json('barrios-caba.geojson');
-const dataFetch = d3.dsv(';', 'data/147_desratizacion.csv', d3.autoType);
+const dataFetch = d3.dsv(';', 'data/contactos_anuales.csv', d3.autoType);
 
 Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
-
+  const dataFiltrada = data.filter(d => {
+    const fecha = d.fecha_ingreso.split('/');
+    const categoria = d.categoria;
+    const mes = parseInt(fecha[1]);
+    return categoria === "LIMPIEZA Y RECOLECCIÓN" && (mes === 03 || mes === 04);
+  });
+  
   /* Agrupamos reclamos x barrio */
-  const reclamosPorBarrio = d3.group(data, d => d.domicilio_barrio) // crea un Map
+  const reclamosPorBarrio = d3.group(dataFiltrada, d => d.domicilio_barrio) // crea un Map
   console.log('reclamosPorBarrio', reclamosPorBarrio)
   
   /* A cada feature del mapa le agregamos la prop DENUNCIAS */
@@ -20,7 +26,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
   })
 
   /* Crear tabla de conteo de contactos */
-  const barriosTabla = ["MATADEROS", "PALERMO",  "FLORESTA", "VILLA PUEYRREDON", "VILLA URQUIZA", "CABALLITO"];
+  const barriosTabla = [ "PALERMO", "CABALLITO", "VILLA URQUIZA", "VILLA DEVOTO"];
   const conteoContactos = barriosTabla.map(barrio => {
     const contactos = reclamosPorBarrio.get(barrio);
     const cantidad = contactos ? contactos.length : 0;
@@ -65,7 +71,7 @@ Promise.all([mapaFetch, dataFetch]).then(([barrios, data]) => {
           stroke: "black",
           textAnchor: "center",
           dx: 4,
-          filter: (d) => d.properties.DENUNCIAS > 20
+          filter: (d) => d.properties.DENUNCIAS > 1700
         })
       )
     ],
@@ -106,6 +112,3 @@ const table = tableDiv.append("table").style("margin", "auto");
   rows.append("td")
     .text(d => d.cantidad);
 });
-
-
-
